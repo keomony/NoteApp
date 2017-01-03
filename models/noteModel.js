@@ -1,9 +1,9 @@
-(function(note) {
+(function(exports) {
 
-  function notes(string) {
-    return string
-  };
+  var Note = function(text){
+    this.text = text
+    };
 
-  note.notes = notes;
+  exports.Note = Note;
 
 })(this);

@@ -1,7 +1,9 @@
 function testNoteIsCreated() {
 
-  if (notes("Hello") !== "Hello") {
-    throw new Error("No note was created")
+  testNote = new Note("Hello");
+
+  if (testNote.text !== "Hello") {
+    throw new Error("Incorrect note created")
   };
 };
 
