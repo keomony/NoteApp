@@ -5,14 +5,19 @@ function testStoreNote(){
   var noteApp = new NoteApp();
 
   noteApp.storeNote(inputNote);
-  assert.isTrue(noteApp.noteList[0] === inputNote);
+  assert.isTrue(noteApp.noteList[0].text === inputNote);
 };
 testStoreNote();
 
-function testShowNote(){
+function testShowAllNotes(){
   var noteApp = new NoteApp();
   noteApp.storeNote("hi");
   noteApp.storeNote("hello");
-  assert.isTrue(noteApp.showNote().includes("hello"));
+  var notes = noteApp.showAllNotes();
+  var notesText = [];
+  for(var i=0; i<notes.length; i++){
+    notesText.push(notes[i].text);
+  }
+  assert.isTrue(notesText.includes("hello"));
 };
-testShowNote();
+testShowAllNotes();
