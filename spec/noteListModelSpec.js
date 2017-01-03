@@ -12,10 +12,7 @@
   var noteApp = new NoteApp();
   noteApp.storeNote("hi");
   noteApp.storeNote("hello");
-  var notes = noteApp.showAllNotes();
-  var notesText = [];
-  for(var i=0; i<notes.length; i++){
-    notesText.push(notes[i].text);
-  }
-  assert.isTrue(notesText.includes("hello"), "should show all notes text");
+  var allNotes = noteApp.showAllNotes();
+  assert.isTrue(allNotes.length == 2, "should show all note objects");
+  assert.isTrue(allNotes[0] instanceof Note, "should be an note object");
 })();
