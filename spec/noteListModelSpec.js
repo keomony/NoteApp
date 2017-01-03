@@ -5,7 +5,7 @@ function testStoreNote(){
   var noteApp = new NoteApp();
 
   noteApp.storeNote(inputNote);
-  assert.isTrue(noteApp.noteList[0].text === inputNote);
+  assert.isTrue(noteApp.noteList[0].text === inputNote, "should store the note object");
 };
 testStoreNote();
 
@@ -18,6 +18,6 @@ function testShowAllNotes(){
   for(var i=0; i<notes.length; i++){
     notesText.push(notes[i].text);
   }
-  assert.isTrue(notesText.includes("hello"));
+  assert.isTrue(notesText.includes("hello"), "should show all notes text");
 };
 testShowAllNotes();
