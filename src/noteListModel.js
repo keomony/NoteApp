@@ -1,15 +1,14 @@
 "use strict";
 
-var NoteApp = function(){
-  this.noteList = new Array;
-
+var NoteList = function(){
+  this.notes = new Array;
 };
 
-NoteApp.prototype.storeNote = function(inputText){
+NoteList.prototype.storeNote = function(inputText){
   var note = new Note(inputText)
-  this.noteList.push(note);
+  this.notes.push(note);
 };
 
-NoteApp.prototype.showAllNotes = function(){
-  return this.noteList;
+NoteList.prototype.showAllNotes = function(){
+  return this.notes;
 };
