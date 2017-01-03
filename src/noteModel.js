@@ -6,5 +6,4 @@ var NoteApp = function(){
 
 NoteApp.prototype.storeNote = function(inputNote){
   this.noteList.push(inputNote);
-
 };
