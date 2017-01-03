@@ -1,15 +1,14 @@
 "use strict";
 
-function testStoreNote(){
+(function testStoreNote(){
   var inputNote = "Hi";
   var noteApp = new NoteApp();
 
   noteApp.storeNote(inputNote);
   assert.isTrue(noteApp.noteList[0].text === inputNote, "should store the note object");
-};
-testStoreNote();
+})();
 
-function testShowAllNotes(){
+(function testShowAllNotes(){
   var noteApp = new NoteApp();
   noteApp.storeNote("hi");
   noteApp.storeNote("hello");
@@ -19,5 +18,4 @@ function testShowAllNotes(){
     notesText.push(notes[i].text);
   }
   assert.isTrue(notesText.includes("hello"), "should show all notes text");
-};
-testShowAllNotes();
+})();
