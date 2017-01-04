@@ -1,41 +1,51 @@
 function viewEmptyNoteList() {
 
-  noteList = new NoteList();
-  listView = new NoteListView(noteList);
+  var noteList = new NoteList();
+  var listView = new NoteListView(noteList);
 
   assert.isTrue(listView.hasOwnProperty('noteList'));
 }
 
 function viewSingularNoteList(){
 
-  noteList = new NoteList();
+  var noteList = new NoteList();
   noteList.addNote("This is a fine note!");
-  listView = new NoteListView(noteList);
+  var listView = new NoteListView(noteList);
 
-  assert.isTrue(listView.convert() === "<ul><div><li>This is a fine note!</li></div></ul>");
+  assert.isTrue(listView.convert() === "<ul><div><li><a href='#notes/0'>This is a fine note!</a></li></div></ul>");
 }
 
 function viewMultipleNoteList(){
 
-  noteList = new NoteList();
+  var noteList = new NoteList();
   noteList.addNote("This is one fine note!");
   noteList.addNote("This is another fine note!");
-  listView = new NoteListView(noteList);
+  var listView = new NoteListView(noteList);
 
-  assert.isTrue(listView.convert() === "<ul><div><li>This is one fine not</li></div><div><li>This is another fine</li></div></ul>");
+  assert.isTrue(listView.convert() === "<ul><div><li><a href='#notes/0'>This is one fine not</a></li></div><div><li><a href='#notes/1'>This is another fine</a></li></div></ul>");
 }
 
 function twentyCharStrings(){
 
-  noteList = new NoteList();
+  var noteList = new NoteList();
   noteList.addNote("Something with more than twenty characters");
-  listView = new NoteListView(noteList);
+  var listView = new NoteListView(noteList);
+
+  assert.isTrue(listView.convert() === "<ul><div><li><a href='#notes/0'>Something with more </a></li></div></ul>")
+}
 
 
-  assert.isTrue(listView.convert() === "<ul><div><li>Something with more </li></div></ul>")
+function linkNoteToURL(){
+
+  var noteList = new NoteList();
+  noteList.addNote("New Note")
+  var listView = new NoteListView(noteList);
+
+  assert.isTrue(listView.convert() === "<ul><div><li><a href='#notes/0'>New Note</a></li></div></ul>")
 }
 
 viewEmptyNoteList();
 viewSingularNoteList();
 viewMultipleNoteList();
 twentyCharStrings();
+linkNoteToURL();
