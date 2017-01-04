@@ -15,6 +15,6 @@
     return this.notes;
   };
 
-  exports.NoteList = NoteList;
+  exports.NoteList = NoteList
 
 })(this);
