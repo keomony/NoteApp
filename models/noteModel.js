@@ -1,7 +1,8 @@
 (function(exportNoteModel) {
 
-  var Note = function(text){
+  var Note = function(text, id){
     this.text = text;
+    this.id = id;
   };
 
   Note.prototype.view = function(){

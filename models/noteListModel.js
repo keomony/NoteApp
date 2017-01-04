@@ -2,6 +2,7 @@
 
   var NoteList = function() {
     this.list = [];
+    this.noteCounter = -1;
   };
 
   NoteList.prototype.noteModels = function(){
@@ -9,7 +10,13 @@
   };
 
   NoteList.prototype.addNote = function(text){
-    this.list.push(new Note(text));
+    id = this.generateId();
+    this.list.push(new Note(text, id));
+  };
+
+  NoteList.prototype.generateId = function(){
+    this.noteCounter += 1;
+    return this.noteCounter;
   };
 
   exportNoteListModel.NoteList = NoteList;

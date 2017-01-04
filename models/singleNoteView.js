@@ -5,7 +5,7 @@
   };
 
   SingleNoteView.prototype.convert = function(){
-    return "<div>" + this.noteModel.text + "</div>"
+    return "<div>" + this.noteModel.text + "</div>";
   };
 
   exportSingleNoteView.SingleNoteView = SingleNoteView;
