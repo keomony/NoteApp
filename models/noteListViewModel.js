@@ -6,7 +6,7 @@
 
   NoteListView.prototype.convert = function(){
     var output = this.noteList.noteModels().map(function(note){
-      return "<div><li>" + note.view() + "</li></div>";
+      return "<div><li>" + note.view().slice(0, 20) + "</li></div>";
     });
     return "<ul>" + output.join('') + "</ul>";
   };

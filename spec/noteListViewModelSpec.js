@@ -22,9 +22,20 @@ function viewMultipleNoteList(){
   noteList.addNote("This is another fine note!");
   listView = new NoteListView(noteList);
 
-  assert.isTrue(listView.convert() === "<ul><div><li>This is one fine note!</li></div><div><li>This is another fine note!</li></div></ul>");
+  assert.isTrue(listView.convert() === "<ul><div><li>This is one fine not</li></div><div><li>This is another fine</li></div></ul>");
+}
+
+function twentyCharStrings(){
+
+  noteList = new NoteList();
+  noteList.addNote("Something with more than twenty characters");
+  listView = new NoteListView(noteList);
+
+
+  assert.isTrue(listView.convert() === "<ul><div><li>Something with more </li></div></ul>")
 }
 
 viewEmptyNoteList();
 viewSingularNoteList();
 viewMultipleNoteList();
+twentyCharStrings();
