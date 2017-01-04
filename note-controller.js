@@ -6,7 +6,7 @@
   };
 
   NoteController.prototype.convertToHTML = function(){
-    element = document.getElementById("app");
+    var element = document.getElementById("app");
     element.innerHTML = this.noteListView.convert();
   };
 
