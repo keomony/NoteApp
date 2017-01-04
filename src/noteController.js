@@ -1,13 +1,18 @@
 'use strict';
 
-(function() {
+(function(exports) {
 
-  var noteList = new NoteList();
-  var noteText = "Favourite drink: seltzer";
-  noteList.storeNote(noteText);
-  var noteListView = new NoteListView(noteList);
+  var NoteController = function(noteList){
+    this.noteList = noteList;
+    var noteText = "Favourite drink: seltzer";
+    this.noteList.storeNote(noteText);
+    this.noteListView = new NoteListView(this.noteList);
+  }
+  NoteController.prototype.getHTML = function() {
+    var element = document.getElementById("note");
+    element.innerHTML = this.noteListView.viewHTML();
+  }
 
-  var element = document.getElementById("note");
-  element.innerHTML = noteListView.viewHTML();
+exports.NoteController = NoteController;
 
-})();
+})(this);
