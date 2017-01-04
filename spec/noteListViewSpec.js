@@ -9,7 +9,7 @@
   "should return a string of HTML that represents the note list model");
 })();
 
-(function testNoteListView(){
+(function testEmptyNoteListView(){
   var noteList = new NoteList();
   var noteListView = new NoteListView(noteList);
   assert.isTrue(noteListView.viewHTML().includes("<ul></ul>"),
