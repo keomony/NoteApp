@@ -1,14 +1,38 @@
 (function(exportNoteController){
 
   var NoteController = function(noteList){
-    noteList.addNote("Instatiated Note");
+    this.noteList = noteList
+    this.noteList.addNote("Instatiated Note");
     this.noteListView = new NoteListView(noteList);
   };
 
   NoteController.prototype.convertToHTML = function(){
     var element = document.getElementById("app");
     element.innerHTML = this.noteListView.convert();
-  };
+  }
+
+  NoteController.prototype.renderSingleNoteHTML = function(){
+    window.addEventListener("hashchange", this.changeSingleNoteHTML(this.getSingleNoteHTML()))
+  }
+
+  NoteController.prototype.findNoteURL = function(location){
+    return location.hash.split("#notes/")[1]
+  }
+
+  NoteController.prototype.findNoteById = function(id){
+    return this.noteList.noteModels()[parseInt(id)]
+  }
+
+  NoteController.prototype.getSingleNoteHTML = function(){
+    return (new SingleNoteView(this.findNoteById(this.findNoteURL(window.location)))).convert()
+  }
+
+  NoteController.prototype.changeSingleNoteHTML = function(text){
+    var element = document.getElementById("app")
+    element.innerHTML = text
+  }
+
+
 
   exportNoteController.NoteController = NoteController;
 

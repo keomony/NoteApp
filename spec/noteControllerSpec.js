@@ -4,7 +4,6 @@ function noteControllerInstantiated(){
   assert.isTrue(controller.hasOwnProperty('noteListView'));
 }
 
-noteControllerInstantiated();
 
 function validateInnerHTML(){
 
@@ -31,4 +30,39 @@ function validateInnerHTML(){
 
 }
 
+function findIdOfNote(){
+  var noteList = new NoteList();
+  var controller = new NoteController(noteList);
+
+  var testLocation = window.location
+  testLocation.hash = "#notes/0"
+
+  assert.isTrue(controller.findNoteURL(testLocation) === "0")
+}
+
+function testFindNoteById(){
+  var noteList = new NoteList();
+  noteList.addNote("Testing again")
+
+  var controller = new NoteController(noteList);
+
+  assert.isTrue(controller.findNoteById("0") === noteList.noteModels()[0])
+}
+
+function getSingleNoteHTML(){
+  var noteList = new NoteList();
+  noteList.addNote("Test suttin")
+  var controller = new NoteController(noteList);
+
+  assert.isTrue(controller.getSingleNoteHTML() === "<div>Test suttin</div>")
+}
+
+
+
+
+
+noteControllerInstantiated();
 validateInnerHTML();
+findIdOfNote();
+testFindNoteById();
+getSingleNoteHTML();
