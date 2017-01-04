@@ -57,12 +57,19 @@ function getSingleNoteHTML(){
   assert.isTrue(controller.getSingleNoteHTML() === "<div>Test suttin</div>")
 }
 
+function testChangeSingleNoteHTML(){
+  var noteList = new NoteList();
+  noteList.addNote("Test what")
+  var controller = new NoteController(noteList);
+  controller.changeSingleNoteHTML("Testing changing single note HTML")
 
+  assert.isTrue(document.getElementById("app").innerHTML === "Testing changing single note HTML")
 
-
+}
 
 noteControllerInstantiated();
 validateInnerHTML();
 findIdOfNote();
 testFindNoteById();
 getSingleNoteHTML();
+testChangeSingleNoteHTML();
