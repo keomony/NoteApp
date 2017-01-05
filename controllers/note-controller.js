@@ -2,44 +2,43 @@
 
   exports.NoteController = {
 
-    noteController: function(noteList){
-      this.noteList = noteList
-      noteList.addNote("Instatiated Note");
-      this.noteListView = new NoteListView(noteList);
-      this.showSingleNoteHTML();
-    }
+    initialize: function(noteList, noteListView){
+      this.noteList = noteList;
+      this.noteList.addNote("Instatiated Note");
+      this.noteListView = new NoteListView(noteList)
+    },
 
-    convertToHTML: function(){
-      var element = document.getElementById("app");
-      element.innerHTML = this.noteListView.convert();
-    }
+    // convertToHTML: function(){
+    //   var element = document.getElementById("app");
+    //   element.innerHTML = this.noteListView.convert();
+    // },
+    //
+    // showSingleNoteHTML: function(){
+    //   window.addEventListener("hashchange", renderSingleNoteHTML)
+    // },
+    //
+    // renderSingleNoteHTML: function()){
+    //   changeSingleNoteHTML(getSingleNoteHTML())
+    // },
+    //
+    // findNoteURL: function(location){
+    //   return location.hash.split("#notes/")[1]
+    // },
+    //
+    // findNoteById: function(id){
+    //   return this.noteList.list[parseInt(id)]
+    // },
+    //
+    // getSingleNoteHTML: function() {
+    //   return new SingleNoteView(findNoteById(findNoteURL(window.location))).convert()
+    // },
+    //
+    // changeSingleNoteHTML: function(text){
+    //   document.getElementById("app").innerHTML = text
+    // },
 
-    showSingleNoteHTML: function(){
-      window.addEventListener("hashchange", renderSingleNoteHTML)
-    }
-
-    renderSingleNoteHTML: function(){
-      this.changeSingleNoteHTML(this.getSingleNoteHTML())
-    }
-
-    findNoteURL: function(location){
-      return location.hash.split("#notes/")[1]
-    }
-
-    findNoteById: function(id){
-      return this.noteList.list[parseInt(id)]
-    }
-
-    getSingleNoteHTML: function() {
-      return new SingleNoteView(findNoteById(findNoteURL(window.location))).convert()
-    }
-
-    changeSingleNoteHTML: function(text){
-      document.getElementById("app").innerHTML = text
-    }
-
-  }
-
+  };
+  //
 
   // showSingleNoteHTML();
   //
