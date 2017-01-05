@@ -8,9 +8,11 @@ var noteController = new NoteController(noteList);
 })();
 
 (function testAppElementContainsListHTML() {
-  
+
+  var newDiv = document.createElement("div");
+  newDiv.id = "app";
+  document.body.appendChild(newDiv);
   noteController.addNote("Favourite food: pesto");
   noteController.getHTML();
-  var mockElement = document.getElementById("app");
-  assert.isTrue( mockElement.innerHTML.includes("<ul><li><a href=\"#0\">Favourite food: pest...</a></li></ul>"), "should include html list" );
+  assert.isTrue(newDiv.innerHTML.includes("<ul><li><a href=\"#0\">Favourite food: pest...</a></li></ul>"), "should include html list" );
 })();
