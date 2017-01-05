@@ -1,7 +1,7 @@
 function noteControllerInstantiated(){
   var noteList = new NoteList();
-  var controller = new NoteController(noteList);
-  assert.isTrue(controller.hasOwnProperty('noteListView'));
+  // var controller = new NoteController(noteList);
+  assert.isTrue(noteController.hasOwnProperty('noteListView'));
 }
 
 
@@ -24,7 +24,7 @@ function validateInnerHTML(){
 
   //override line 5 in controller code
   controller.noteListView = new noteListViewDouble();
-  controller.convertToHTML();
+  convertToHTML();
 
   assert.isTrue(document.getElementById("app").innerHTML === "<ul><div><li>Test Note</li></div></ul>");
 
@@ -37,7 +37,7 @@ function findIdOfNote(){
   var testLocation = window.location
   testLocation.hash = "#notes/0"
 
-  assert.isTrue(controller.findNoteURL(testLocation) === "0")
+  assert.isTrue(noteController.findNoteURL(testLocation) === "0")
 }
 
 function testFindNoteById(){
