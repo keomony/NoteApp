@@ -8,7 +8,6 @@ var NoteListView = function(inputNoteList) {
 
 NoteListView.prototype.viewHTML = function() {
 
-  this.htmlTag = "<ul>";
   for(var i = 0; i<this.noteList.notes.length; i++){
     var text = this.noteList.notes[i].returnText();
     var shortText = "";
@@ -17,8 +16,8 @@ NoteListView.prototype.viewHTML = function() {
     } else {
       shortText = text;
     }
-    this.htmlTag += "<li><a href='#"+this.noteList.notes[i].returnId()+"'>"+shortText+"</a></li>";
+    this.htmlTag += "<li><a href=\"#"+this.noteList.notes[i].returnId()+"\">"+shortText+"</a></li>";
   }
-  this.htmlTag += "</ul>";
+  this.htmlTag = "<ul>"+this.htmlTag+"</ul>";
   return this.htmlTag;
 };
