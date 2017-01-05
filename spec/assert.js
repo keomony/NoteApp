@@ -1,3 +1,4 @@
+(function(windowArg) {
 var assert = {
   isTrue: function(assertionToCheck, testMessage) {
     if (!assertionToCheck){
@@ -7,3 +8,5 @@ var assert = {
     }
   }
 };
+windowArg.assert = assert;
+})(this);

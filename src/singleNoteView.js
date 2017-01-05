@@ -1,14 +1,14 @@
-(function(exports){
-  var SingleNoteView = function(note){
+(function(windowArg){
+  var singleNoteView = function(note){
     this.note = note;
   };
 
-  SingleNoteView.prototype.viewHTML = function(){
+  singleNoteView.prototype.viewHTML = function(){
     var text = this.note.returnText();
     var html = "<div>"+text+"</div>";
     return html;
   };
 
-  exports.SingleNoteView = SingleNoteView;
+  windowArg.SingleNoteView = singleNoteView;
 
 })(this);

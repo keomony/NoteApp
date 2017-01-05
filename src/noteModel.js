@@ -1,12 +1,18 @@
-var Note = function(input, id){
-  this.text = input;
-  this.id = id;
-};
+(function(windowArg){
 
-Note.prototype.returnText = function(){
-  return this.text;
-}
+  var Note = function(input, id){
+    this.text = input;
+    this.id = id;
+  };
 
-Note.prototype.returnId = function(){
-  return this.id;
-}
+  Note.prototype.returnText = function(){
+    return this.text;
+  }
+
+  Note.prototype.returnId = function(){
+    return this.id;
+  }
+
+  windowArg.Note = Note;
+
+})(this);
