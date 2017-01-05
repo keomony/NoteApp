@@ -9,6 +9,6 @@
     return html;
   };
 
-  exports.SingleNoteView = SingleNoteView
+  exports.SingleNoteView = SingleNoteView;
 
 })(this);

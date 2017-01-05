@@ -12,5 +12,5 @@
   noteController.addNote("Favourite food: pesto");
   noteController.getHTML();
   var mockElement = document.getElementById("app");
-  assert.isTrue( mockElement.innerHTML.includes("<ul><li><div>Favourite food: pest...</div></li></ul>"), "should include html list" );
+  assert.isTrue( mockElement.innerHTML.includes("<ul><li><a href='#0'>Favourite food: pest...</a></li></ul>"), "should include html list" );
 })();
