@@ -23,9 +23,6 @@
   }
 
   NoteController.prototype.getSingleNoteHTML = function() {
-    console.log(window.location)
-    console.log(this.findNoteURL(window.location))
-    console.log(this.findNoteById(this.findNoteURL(window.location)))
     return new SingleNoteView(this.findNoteById(this.findNoteURL(window.location))).convert()
   }
 

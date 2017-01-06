@@ -1,11 +1,11 @@
-function noteControllerInstantiated(){
+function testNoteControllerInstantiated(){
   var noteList = new NoteList();
   var controller = new NoteController(noteList);
   assert.isTrue(controller.hasOwnProperty('noteListView'));
 }
 
 
-function validateInnerHTML(){
+function testValidateInnerHTML(){
 
   //mock up a new note list, that responds to addNote() method by doing nothing
   function noteListDouble() {}
@@ -29,7 +29,7 @@ function validateInnerHTML(){
 
 }
 
-function findIdOfNote(){
+function testFindIdOfNote(){
   var noteList = new NoteList();
   var controller = new NoteController(noteList);
 
@@ -70,9 +70,9 @@ function testChangeSingleNoteHTML(){
 
 }
 
-noteControllerInstantiated();
-validateInnerHTML();
-findIdOfNote();
+testNoteControllerInstantiated();
+testValidateInnerHTML();
+testFindIdOfNote();
 testFindNoteById();
 testGetSingleNoteHTML();
 testChangeSingleNoteHTML();
