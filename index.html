@@ -3,6 +3,13 @@
 </head>
 <body>
   <div id="app">hello</div>
+  <div id="noteForm">
+    <form action="/notes/new" method="Post">
+      Note<textarea id="text" rows="4" cols="30"></textarea>
+      <input type="submit" value="Submit" />
+    </form>
+
+  </div>
 
   <script src="models/noteModel.js"></script>
   <script src="models/noteListModel.js"></script>

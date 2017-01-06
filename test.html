@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Frontend, single page app</title>
+  </head>
+
+
+    <script src="src/noteListModel.js"></script>
+    <script src="src/noteModel.js"></script>
+    <script src="src/noteListView.js"></script>
+    <script src="src/noteController.js"></script>
+    <script src="src/singleNoteView.js"></script>
+    <body>
+      <div id="listNote"></div>
+      <div id="viewNote"></div>
+      <script>
+        var noteList = new NoteList();
+        noteList.storeNote("Shopping list: Amok, Milk, Eggs, Bread");
+        noteList.storeNote("Favourite food: Green Fish Curry");
+        var noteListView = new NoteListView(noteList);
+        document.getElementById("listNote").innerHTML=noteListView.viewHTML();
+
+        makeUrlChangeShowNoteForCurrentPage();
+
+        function makeUrlChangeShowNoteForCurrentPage() {
+          window.addEventListener("hashchange", showNoteForCurrentPage);
+        };
+
+        function showNoteForCurrentPage() {
+          showNote(getNoteFromUrl(window.location));
+        };
+
+        function getNoteFromUrl(location) {
+          return location.hash.split("#")[1];
+        };
+
+        function showNote(noteId) {
+          var note = noteList.getNoteById(noteId);
+          var singleNoteView = new SingleNoteView(note);
+          document
+            .getElementById("viewNote")
+            .innerHTML = singleNoteView.viewHTML();
+        };
+    </script>
+  </body>
+</html>
