@@ -37,6 +37,7 @@ function findIdOfNote(){
   testLocation.hash = "#notes/0"
 
   assert.isTrue(controller.findNoteURL(testLocation) === "0")
+  testLocation.hash = ""
 }
 
 function testFindNoteById(){
@@ -48,7 +49,7 @@ function testFindNoteById(){
   assert.isTrue(controller.findNoteById("0") === noteList.noteModels()[0])
 }
 
-function getSingleNoteHTML(){
+function testGetSingleNoteHTML(){
   var noteList = new NoteList();
   noteList.addNote("Test suttin")
 
@@ -73,5 +74,5 @@ noteControllerInstantiated();
 validateInnerHTML();
 findIdOfNote();
 testFindNoteById();
-getSingleNoteHTML();
+testGetSingleNoteHTML();
 testChangeSingleNoteHTML();
