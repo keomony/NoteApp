@@ -6,7 +6,7 @@ controller.convertToHTML();
 
 document.getElementById("noteForm").addEventListener("submit", function(evt){
   evt.preventDefault();
-  console.log(evt);
+  console.log(evt.srcElement[0].value);
 
 })
 window.addEventListener("hashchange", function(){
