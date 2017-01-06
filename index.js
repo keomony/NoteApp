@@ -4,6 +4,11 @@ noteList.addNote("Hey there");
 
 controller.convertToHTML();
 
+document.getElementById("noteForm").addEventListener("submit", function(evt){
+  evt.preventDefault();
+  console.log(evt);
+
+})
 window.addEventListener("hashchange", function(){
   controller.renderSingleNoteHTML();
 })
