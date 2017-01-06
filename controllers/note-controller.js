@@ -5,7 +5,7 @@
     initialize: function(noteList, noteListView){
       this.noteList = noteList;
       this.noteList.addNote("Instatiated Note");
-      this.noteListView = new NoteListView(noteList)
+      this.noteListView = function(noteList) { new NoteListView(noteList) }
     },
 
     // convertToHTML: function(){
