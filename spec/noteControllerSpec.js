@@ -1,7 +1,6 @@
 function noteControllerInstantiated(){
   var noteList = new NoteList();
-  var controller = NoteController;
-  controller.initialize(noteList);
+  var controller = new NoteController(noteList);
   assert.isTrue(controller.hasOwnProperty('noteListView'));
 }
 
@@ -20,8 +19,7 @@ function validateInnerHTML(){
 
   //creating all the stuff we need
   var noteListDouble = new noteListDouble();
-  var controller = NoteController;
-  controller.initialize();
+  var controller = new NoteController(noteListDouble);
 
   //override line 5 in controller code
   controller.noteListView = new noteListViewDouble();
@@ -33,8 +31,7 @@ function validateInnerHTML(){
 
 function findIdOfNote(){
   var noteList = new NoteList();
-  var controller = NoteController;
-  controller.initialize(noteList);
+  var controller = new NoteController(noteList);
 
   var testLocation = window.location
   testLocation.hash = "#notes/0"
@@ -46,8 +43,7 @@ function testFindNoteById(){
   var noteList = new NoteList();
   noteList.addNote("Testing again")
 
-  var controller = NoteController;
-  controller.initialize(noteList);
+  var controller = new NoteController(noteList);
 
   assert.isTrue(controller.findNoteById("0") === noteList.noteModels()[0])
 }
@@ -56,8 +52,7 @@ function getSingleNoteHTML(){
   var noteList = new NoteList();
   noteList.addNote("Test suttin")
 
-  var controller = NoteController;
-  controller.initialize(noteList);
+  var controller = new NoteController(noteList);
 
   assert.isTrue(controller.getSingleNoteHTML() === "<div>Test suttin</div>")
 }
@@ -66,8 +61,7 @@ function testChangeSingleNoteHTML(){
   var noteList = new NoteList();
   noteList.addNote("Test what")
 
-  var controller = NoteController;
-  controller.initialize(noteList);
+  var controller = new NoteController(noteList);
 
   controller.changeSingleNoteHTML("Testing changing single note HTML")
 
